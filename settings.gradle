@@ -1,3 +1,4 @@
 rootProject.name = 'all-samples-hub'
 include 'spring-integration-sample'
+include 'java-8-features'
 
