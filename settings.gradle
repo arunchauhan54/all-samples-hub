@@ -1,0 +1,3 @@
+rootProject.name = 'all-samples-hub'
+include 'spring-integration-sample'
+
