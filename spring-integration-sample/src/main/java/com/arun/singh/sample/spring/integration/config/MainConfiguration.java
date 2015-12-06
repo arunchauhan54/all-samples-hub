@@ -1,4 +1,4 @@
-package com.arun.singh.sample;
+package com.arun.singh.sample.spring.integration.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
