@@ -10,7 +10,9 @@ import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.jms.Jms;
+import org.springframework.integration.dsl.support.GenericHandler;
 import org.springframework.jms.connection.CachingConnectionFactory;
+import org.springframework.jms.connection.JmsTransactionManager;
 import org.springframework.jms.core.JmsTemplate;
 
 /**
@@ -42,31 +44,52 @@ public class MainConfiguration {
         return cachingConnectionFactory;
     }
 
+
+    @Bean
+    public JmsTransactionManager jmsTransactionManager(){
+        JmsTransactionManager jmsTransactionManager = new JmsTransactionManager();
+        jmsTransactionManager.setConnectionFactory(this.cachingConnectionFactory());
+        return jmsTransactionManager;
+    }
+
     @Bean
     public JmsTemplate jmsTemplate(){
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(this.cachingConnectionFactory());
         jmsTemplate.setDeliveryPersistent(true);
-//        jmsTemplate.setMessageConverter();
         return jmsTemplate;
     }
 
 
+    @Bean
+    public GenericHandler<String> myHandle(){
+        return (payload, headers) ->
+        {
+            System.out.println("handler " +payload);
+            return payload;
+        };
+    }
 
-//
-//    @Bean
-//    public IntegrationFlow process1() {
-//        return IntegrationFlows.from(Jms.inboundAdapter(this.jmsTemplate()).destination("arun.test.queue1"))
-//                .handle(h -> System.out.println(h.getPayload()))
-//                .get();
-//    }
 
+
+    @Bean
+    public GenericHandler<String> myHandle1(){
+        return (payload, headers) ->
+        {
+            System.out.println("handler 1 " +payload);
+            return payload;
+        };
+    }
 
     @Bean
     public IntegrationFlow process() {
         return IntegrationFlows.from(Jms.messageDriverChannelAdapter(cachingConnectionFactory()).destination("arun.test.queue1"))
+                .handle(myHandle())
+                .handle(myHandle1())
                 .handle(h -> System.out.println(h.getPayload()))
                 .get();
     }
+
+
 
 }
