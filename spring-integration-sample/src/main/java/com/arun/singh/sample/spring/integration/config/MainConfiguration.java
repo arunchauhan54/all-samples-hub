@@ -1,7 +1,6 @@
 package com.arun.singh.sample.spring.integration.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +37,7 @@ public class MainConfiguration {
     }
 
     @Bean
-    public CachingConnectionFactory cachingConnectionFactory(){
+    public CachingConnectionFactory cachingConnectionFactory() {
         CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory(this.activeMQConnectionFactory());
         cachingConnectionFactory.setSessionCacheSize(10);
         return cachingConnectionFactory;
@@ -46,14 +45,14 @@ public class MainConfiguration {
 
 
     @Bean
-    public JmsTransactionManager jmsTransactionManager(){
+    public JmsTransactionManager jmsTransactionManager() {
         JmsTransactionManager jmsTransactionManager = new JmsTransactionManager();
         jmsTransactionManager.setConnectionFactory(this.cachingConnectionFactory());
         return jmsTransactionManager;
     }
 
     @Bean
-    public JmsTemplate jmsTemplate(){
+    public JmsTemplate jmsTemplate() {
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(this.cachingConnectionFactory());
         jmsTemplate.setDeliveryPersistent(true);
@@ -62,21 +61,20 @@ public class MainConfiguration {
 
 
     @Bean
-    public GenericHandler<String> myHandle(){
+    public GenericHandler<String> myHandle() {
         return (payload, headers) ->
         {
-            System.out.println("handler " +payload);
+            System.out.println("handler " + payload);
             return payload;
         };
     }
 
 
-
     @Bean
-    public GenericHandler<String> myHandle1(){
+    public GenericHandler<String> myHandle1() {
         return (payload, headers) ->
         {
-            System.out.println("handler 1 " +payload);
+            System.out.println("handler 1 " + payload);
             return payload;
         };
     }
@@ -89,7 +87,6 @@ public class MainConfiguration {
                 .handle(h -> System.out.println(h.getPayload()))
                 .get();
     }
-
 
 
 }
