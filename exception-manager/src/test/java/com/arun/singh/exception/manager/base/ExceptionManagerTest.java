@@ -1,6 +1,5 @@
 package com.arun.singh.exception.manager.base;
 
-import com.arun.singh.exception.manager.config.ExceptionFlowConfiguration;
 import com.arun.singh.exception.manager.config.ExceptionHandlingConfiguration;
 import com.arun.singh.exception.manager.exception.BaseException;
 import org.junit.Before;

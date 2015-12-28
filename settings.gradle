@@ -2,5 +2,5 @@ rootProject.name = 'all-samples-hub'
 include 'spring-integration-sample'
 include 'java-8-features'
 include 'exception-manager'
-include 'excption-client'
+include 'exception-client'
 

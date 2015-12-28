@@ -1,6 +1,6 @@
-package com.arun.singh.exception.manager.config;
+package com.arun.singh.exception.client.config;
 
-import com.arun.singh.exception.manager.testing.ExceptionCreator;
+import com.arun.singh.exception.client.testing.ExceptionCreator;
 import org.springframework.context.annotation.*;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.core.MessageSource;

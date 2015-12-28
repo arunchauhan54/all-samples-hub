@@ -1,4 +1,4 @@
-package com.arun.singh.exception.manager.testing;
+package com.arun.singh.exception.client.testing;
 
 import com.arun.singh.exception.manager.exception.BaseException;
 

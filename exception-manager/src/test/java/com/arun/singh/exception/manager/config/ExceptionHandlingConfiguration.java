@@ -2,7 +2,6 @@ package com.arun.singh.exception.manager.config;
 
 import com.arun.singh.exception.manager.base.ExceptionHandler;
 import com.arun.singh.exception.manager.base.ExceptionManager;
-import com.arun.singh.exception.manager.config.ExceptionFlowConfiguration;
 import com.arun.singh.exception.manager.handler.ExceptionLoggerHandler;
 import com.arun.singh.exception.manager.handler.ExceptionMailHandler;
 import com.arun.singh.exception.manager.handler.ExceptionNetcoolHandler;
