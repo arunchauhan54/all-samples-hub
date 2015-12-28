@@ -1,9 +1,9 @@
 package com.arun.singh.exception.manager.base;
 
+import com.arun.singh.exception.manager.config.ExceptionFlowConfiguration;
 import com.arun.singh.exception.manager.config.ExceptionHandlingConfiguration;
 import com.arun.singh.exception.manager.exception.BaseException;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,6 @@ public class ExceptionManagerTest {
     @Test
     public void testHandle() throws Exception {
         exceptionManager.handle(new BaseException("101",new String[]{" Test "}),null);
-
         exceptionManager.handle(new BaseException("102",new String[]{"-0.45X"}),null);
 
     }

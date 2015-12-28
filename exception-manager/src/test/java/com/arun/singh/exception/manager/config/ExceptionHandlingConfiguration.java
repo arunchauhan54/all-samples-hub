@@ -2,6 +2,7 @@ package com.arun.singh.exception.manager.config;
 
 import com.arun.singh.exception.manager.base.ExceptionHandler;
 import com.arun.singh.exception.manager.base.ExceptionManager;
+import com.arun.singh.exception.manager.config.ExceptionFlowConfiguration;
 import com.arun.singh.exception.manager.handler.ExceptionLoggerHandler;
 import com.arun.singh.exception.manager.handler.ExceptionMailHandler;
 import com.arun.singh.exception.manager.handler.ExceptionNetcoolHandler;
@@ -12,7 +13,7 @@ import com.arun.singh.exception.manager.metadata.ExceptionMetaDataCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 
 @Configuration
-@PropertySource("exception.properties")
+@Import(ExceptionFlowConfiguration.class)
 public class ExceptionHandlingConfiguration {
 
     @Autowired
@@ -37,7 +38,7 @@ public class ExceptionHandlingConfiguration {
     @Bean
     public ExceptionMetaDataCache exceptionMetaDataCache() {
         ExceptionMetaDataCache exceptionMetaDataCache = new ExceptionMetaDataCache();
-        exceptionMetaDataCache.add("101", () -> (new ExceptionMetaData("101", "Not able to process system : %s")));
+        exceptionMetaDataCache.add("101", () -> (new ExceptionMetaData("101", "Got the Error : %s, Now I can handle this !")));
         exceptionMetaDataCache.setMetadataLoader(metadataLoader());
         return exceptionMetaDataCache;
     }
