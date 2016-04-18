@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/all-samples-hub.iml" filepath="$PROJECT_DIR$/all-samples-hub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exception-client/exception-client.iml" filepath="$PROJECT_DIR$/exception-client/exception-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exception-manager/exception-manager.iml" filepath="$PROJECT_DIR$/exception-manager/exception-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-8-features/java-8-features.iml" filepath="$PROJECT_DIR$/java-8-features/java-8-features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-integration-sample/spring-integration-sample.iml" filepath="$PROJECT_DIR$/spring-integration-sample/spring-integration-sample.iml" />
+    </modules>
+  </component>
+</project>
