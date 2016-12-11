@@ -9,6 +9,14 @@ repositories {
     mavenCentral()
 }
 
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
+}
+
 subprojects
         {
             group 'com.arun.singh.sample'

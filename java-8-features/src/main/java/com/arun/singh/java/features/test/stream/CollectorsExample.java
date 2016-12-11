@@ -3,6 +3,7 @@ package com.arun.singh.java.features.test.stream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Arun on 4/17/2016.
@@ -15,10 +16,6 @@ public class CollectorsExample {
         list.add("AXyz");
 
         List<String> l = new ArrayList(Arrays.asList("one", "two"));
-        System.out.println(l.stream().collect(java.util.stream.Collectors.joining("")));
-
-
-
-
-    }
+        System.out.println(l.stream().collect(Collectors.joining("")));
+   }
 }
