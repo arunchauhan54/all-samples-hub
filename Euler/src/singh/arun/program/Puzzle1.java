@@ -7,9 +7,6 @@ import java.util.stream.LongStream;
 
 public class Puzzle1 {
 
-    public Puzzle1() {
-    }
-
     public static void main(String[] args) {
         final Collection<LongPredicate> listOfPredicate = new ArrayList<>();
         listOfPredicate.add(isDivisibleFrom(3));
