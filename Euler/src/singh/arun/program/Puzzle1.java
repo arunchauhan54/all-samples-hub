@@ -20,7 +20,7 @@ public class Puzzle1 {
                 .sum();
     }
 
-    private static LongPredicate isDivisibleFrom(int n) {
+    public static LongPredicate isDivisibleFrom(int n) {
         return (value) -> value % n == 0;
     }
 }
